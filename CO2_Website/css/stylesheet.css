@@ -1,0 +1,13 @@
+/* stylesheet.css */
+
+.logo {
+    width: 60px;
+}
+
+footer {
+    margin-top: 2rem;
+}
+
+[dir="rtl"] aside {
+    order: 2;
+}
