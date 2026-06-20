@@ -13,3 +13,9 @@ footer {
 [dir="rtl"] aside {
     order: 2;
 }
+
+body {
+
+    background-color: red;
+
+}
