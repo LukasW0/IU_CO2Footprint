@@ -1,9 +1,9 @@
 /* stylesheet.css */
 
-.navbar-brand .logo {
-    width: 60px;
-    height: auto;
-    margin-right: 0.5rem;
+.navbar-brand img.logo {
+    width: 60px !important;
+    max-width: 60px !important;
+    height: auto !important;
 }
 
 footer {
