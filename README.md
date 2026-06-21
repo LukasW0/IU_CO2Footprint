@@ -15,6 +15,8 @@ Verwendete Technologien
 
 Installation
 
+n.a.
+
 Screenshots
 
 Sicherheitsmaßnahmen
