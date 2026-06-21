@@ -18,10 +18,26 @@ footer {
     margin-top: 2rem;
 }
 
+#overview,
+#countries,
+#companies,
+#emissions {
+    scroll-margin-top: 90px;
+}
+
 .navbar-brand img.logo {
     width: 60px;
     max-width: 60px;
     height: auto;
+}
+
+@media (max-width: 767px) {
+    #overview,
+    #countries,
+    #companies,
+    #emissions {
+        scroll-margin-top: 180px;
+    }
 }
 
 @media (max-width: 767px) {
@@ -118,8 +134,8 @@ footer {
 }
 
 sort.icon {
-    margin-left: 0.8rem;
-    font-size: 0.25rem;
+    margin-left: 0.25rem;
+    font-size: 0.8rem;
 }
 
 h1 {
