@@ -18,6 +18,10 @@ footer {
     order: 2;
 }
 
+[dir="rtl"] {
+    text-align: right;
+}
+
 [dir="rtl"] .local-menu {
     order: 2;
 }
