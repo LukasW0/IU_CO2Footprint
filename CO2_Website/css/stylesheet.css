@@ -1,5 +1,9 @@
 /* stylesheet.css */
 
+html {
+    scroll-behavior: smooth;
+}
+
 .navbar-brand img.logo {
     width: 60px;
     max-width: 60px;
@@ -23,19 +27,26 @@
         top: 0;
         z-index: 1000;
         background-color: white;
-        padding: 0.5rem 0;
+        padding: 0.75rem 0;
+        overflow-x: auto;
+        white-space: nowrap;
     }
     
     .local-menu .list-group {
         flex-direction: row;
         overflow-x: auto;
         white-space: nowrap;
+        gap: 0.5rem;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 0;
     }
 
     .local-menu .list-group-item {
-        border-radius: 999px;
-        margin-right: 0.5rem;
         flex: 0 0 auto;
+        width: auto;
+        border-radius: 999px;
+        padding: 0.5rem 1rem;
+        border: 1px solid #dee2e6;
     }
 }
 
