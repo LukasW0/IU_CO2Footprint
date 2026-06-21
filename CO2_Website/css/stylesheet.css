@@ -10,8 +10,20 @@ footer {
     margin-top: 2rem;
 }
 
-[dir="rtl"] aside {
+.local-menu {
+    order: 1;
+}
+
+.content-area {
     order: 2;
+}
+
+[dir="rtl"] .local-menu {
+    order: 2;
+}
+
+[dir="rtl"] .content-area {
+    order: 1;
 }
 
 h1 {
