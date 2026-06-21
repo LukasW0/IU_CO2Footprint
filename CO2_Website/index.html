@@ -93,7 +93,19 @@
 
                     <section id="emissions">
                         <h2>CO₂-Emissionsdaten</h2>
-                        <table class="table table-striped table-hover">
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="countryFilter" class="form-label">Nach Land filtern</label>
+                            <input type="text" id="countryFilter" class="form-control" placeholder="z. B. Deutschland">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="companyFilter" class="form-label">Nach Unternehmen filtern</label>
+                            <input type="text" id="companyFilter" class="form-control" placeholder="z. B. EcoSteel">
+                        </div>
+                    </div>
+
+                        <table id="emissionstable" class="table table-striped table-hover">
                             <thead>
                                 <tr>
                                     <th>Land</th>
