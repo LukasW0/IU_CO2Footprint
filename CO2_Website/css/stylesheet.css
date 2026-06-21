@@ -57,7 +57,7 @@ footer {
         top: 0;
         z-index: 1000;
         background-color: white;
-        padding: 0.5rem 0;
+        padding: 0.5rem 0.75rem;
         overflow-x: auto;
         white-space: nowrap;
         scrollbar-width: none;
@@ -133,7 +133,7 @@ footer {
     text-decoration: underline;
 }
 
-sort.icon {
+.sort-icon {
     margin-left: 0.25rem;
     font-size: 0.8rem;
 }
