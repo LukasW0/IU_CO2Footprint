@@ -1,4 +1,5 @@
 function setDirection(direction) {
+    alert("Button wurde geklickt!");
     document.documentElement.setAttribute("dir", direction);
 }
 
@@ -10,9 +11,3 @@ window.onload = function () {
         document.documentElement.setAttribute("dir", savedDirection);
     }
 };
-
-function setDirection(direction) {
-    alert("Button wurde geklickt!");
-
-    document.documentElement.setAttribute("dir", direction);
-}
