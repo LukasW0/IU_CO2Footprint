@@ -39,6 +39,24 @@ footer {
     order: 2;
 }
 
+@media (max-width: 767px) { 
+    .local-menu {
+        margin-bottom: 1.5rem;
+    }
+    
+    .local-menu .list-group {
+        flex-direction: row;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .local-menu .list-group-item {
+        border-radius: 999px;
+        margin-right: 0.5rem;
+        border: 1px solid #dee2e6;
+    }
+}
+
 [dir="rtl"] .content-area {
     order: 1;
 }
