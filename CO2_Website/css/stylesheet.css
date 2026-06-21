@@ -2,6 +2,20 @@
 
 html {
     scroll-behavior: smooth;
+    background-color: white;
+}
+
+body {
+    background-color: white;
+}
+
+header {
+    background-color: #212529;
+    padding-top: calc(env(safe-area-inset-top) + 1rem);
+}
+
+footer {
+    margin-top: 2rem;
 }
 
 .navbar-brand img.logo {
@@ -67,24 +81,6 @@ html {
     display: flex;
     gap: 0.5rem;
     margin-left: 1rem;
-}
-
-body {
-
-    background-color: white;
-
-}
-
-header {
-
-    background-color: #212529;
-
-    padding-top: calc(env(safe-area-inset-top) + 1rem);
-
-}
-
-footer {
-    margin-top: 2rem;
 }
 
 .local-menu {
