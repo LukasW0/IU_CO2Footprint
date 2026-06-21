@@ -72,6 +72,22 @@ footer {
     order: 1;
 }
 
+.sortable {
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+}
+
+.sortable:hover {
+    background-color: #e9ecef;
+    text-decoration: underline;
+}
+
+sort.icon {
+    margin-left: 0.8rem;
+    font-size: 0.25rem;
+}
+
 h1 {
     font-size: 2.5rem;
     color: black;
