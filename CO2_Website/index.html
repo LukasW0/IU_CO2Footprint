@@ -29,6 +29,10 @@
 
                     </button>
 
+                    <button onclick="setLanguage('ltr')">Deutsch</button>
+
+                    <button onclick="setLanguage('rtl')">العربية</button>
+
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item"><a class="nav-link" href="#">Startpunkt</a></li>
@@ -36,6 +40,12 @@
                             <li class="nav-item"><a class="nav-link" href="#">Co2 Emissionen</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">Impressum</a></li>
                         </ul>
+                    </div>
+                    
+                    <div class="d-flex gap-2 ms-3">
+                        <button class="btn btn-outline-light btn-sm"onclick="setDirection('ltr')">DE</button>
+
+                        <button class="btn btn-outline-light btn-sm"onclick="setDirection('rtl')">AR</button>
                     </div>
                 </div>
             </nav>
@@ -57,7 +67,7 @@
         </main>
 
         <footer class="bg-light p-3 text-center">
-            <h1>Impressum</h1>
+            <a href="#">Impressum</a> | <a href="#">Datenschutz</a>
         </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
