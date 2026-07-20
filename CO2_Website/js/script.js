@@ -1,11 +1,30 @@
 const countryFilter = document.getElementById("countryFilter");
 const companyFilter = document.getElementById("companyFilter");
 
+const DISALLOWED_CHARS = /[^\p{L}\p{N}\s\-]/gu;
+
+// Funktion zur Bereinigung der Eingabewerte, um unerwünschte Zeichen zu entfernen
+function sanitizeInput(rawValue) {
+    return rawValue.replace(DISALLOWED_CHARS, "");
+}
+
+// Event-Handler für die Eingabe in den Filterfeldern
+function handleFilterInput(event) {
+    const field = event.target;
+    const cleanedValue = sanitizeInput(field.value);
+
+    if (cleanedValue !== field.value) {
+        field.value = cleanedValue;
+    }
+
+    filterTable();
+}
+
 // Überprüfen, ob die Filterelemente existieren, bevor Event-Listener hinzugefügt werden
 if (countryFilter && companyFilter) {
 
-    countryFilter.addEventListener("input", filterTable);
-    companyFilter.addEventListener("input", filterTable);
+    countryFilter.addEventListener("input", handleFilterInput);
+    companyFilter.addEventListener("input", handleFilterInput);
 }
 
 // Funktion zur Filterung der Tabelle auf Basis der Eingabewerte
