@@ -11,7 +11,7 @@ body {
 
 header {
     background-color: #212529;
-    padding-top: calc(env(safe-area-inset-top) + 1rem);
+    padding-top: env(safe-area-inset-top);
 }
 
 footer {
@@ -54,7 +54,7 @@ footer {
 @media (max-width: 767px) { 
     .local-menu {
         position: sticky;
-        top: 0;
+        top: 70px;   /* statt 0 */
         z-index: 1000;
         background-color: white;
         padding: 0.5rem 0.75rem;
@@ -102,7 +102,7 @@ footer {
 .local-menu {
     order: 1;
     position: sticky;
-    top: 1rem;
+    top: 90px;   /* statt 1rem – muss der Headerhöhe entsprechen */
     align-self: flex-start;
 }
 
