@@ -11,7 +11,7 @@ body {
 
 header {
     background-color: #212529;
-    padding-top: env(safe-area-inset-top);
+    padding-top: calc(env(safe-area-inset-top) + 1rem);
 }
 
 footer {
@@ -54,7 +54,7 @@ footer {
 @media (max-width: 767px) { 
     .local-menu {
         position: sticky;
-        top: 70px;   /* statt 0 */
+        top: 0;
         z-index: 1000;
         background-color: white;
         padding: 0.5rem 0.75rem;
@@ -102,7 +102,7 @@ footer {
 .local-menu {
     order: 1;
     position: sticky;
-    top: 90px;   /* statt 1rem – muss der Headerhöhe entsprechen */
+    top: 1rem;
     align-self: flex-start;
 }
 
@@ -114,12 +114,15 @@ footer {
     text-align: right;
 }
 
-[dir="rtl"] .local-menu {
-    order: 2;
-}
-
+/* Das lokale Menü und der Content-Bereich sind im HTML per dir="ltr"
+   ausgezeichnet, da ihr Inhalt deutscher (lateinischer/LTR-) Text bleibt –
+   nur ihre Position im Layout soll sich an der Schriftkultur der
+   Besuchenden orientieren. Die von <html dir="rtl"> geerbte
+   Rechtsausrichtung wird hier deshalb wieder auf links zurückgesetzt,
+   damit der isolierte LTR-Text auch optisch normal (linksbündig) startet. */
+[dir="rtl"] .local-menu,
 [dir="rtl"] .content-area {
-    order: 1;
+    text-align: left;
 }
 
 .sortable {
