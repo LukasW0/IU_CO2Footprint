@@ -3,6 +3,11 @@ const companyFilter = document.getElementById("companyFilter");
 
 const DISALLOWED_CHARS = /[^\p{L}\p{N}\s\-]/gu;
 
+const LANG_BY_DIRECTION = {
+    ltr: "de",
+    rtl: "ar"
+};
+
 // Funktion zur Bereinigung der Eingabewerte, um unerwünschte Zeichen zu entfernen
 function sanitizeInput(rawValue) {
     return rawValue.replace(DISALLOWED_CHARS, "");
@@ -85,6 +90,7 @@ function sortTable(columnIndex) {
 window.setDirection = function (direction) {
 
     document.documentElement.setAttribute("dir", direction);
+    document.documentElement.setAttribute("lang", LANG_BY_DIRECTION[direction] ?? "de");
     localStorage.setItem("direction", direction);
 };
 
@@ -95,6 +101,6 @@ window.onload = function () {
 
     // Wenn eine gespeicherte Richtung vorhanden ist, diese anwenden
     if (savedDirection) {
-        document.documentElement.setAttribute("dir", savedDirection);
+        setDirection(savedDirection);
     }
 };

@@ -114,14 +114,6 @@ footer {
     text-align: right;
 }
 
-[dir="rtl"] .local-menu {
-    order: 2;
-}
-
-[dir="rtl"] .content-area {
-    order: 1;
-}
-
 .sortable {
     cursor: pointer;
     user-select: none;
