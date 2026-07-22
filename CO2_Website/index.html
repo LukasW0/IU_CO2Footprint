@@ -17,7 +17,7 @@
     <body class="d-flex flex-column min-vh-100">
         
         <!-- Webseiten Kopfzeile -->
-        <header class="bg-dark text-white p-3 position-relative">
+        <header class="bg-dark text-white px-3 sticky-top">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container-fluid">
 
@@ -44,11 +44,12 @@
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item"><a class="nav-link" href="#overview">Übersicht</a></li>
                             <li class="nav-item"><a class="nav-link" href="#countries">Länder</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#companies">Unternehmen</a></li>
                             <li class="nav-item"><a class="nav-link" href="#emissions">CO₂ Emissionen</a></li>
                             <li class="nav-item"><a class="nav-link" href="#impressum">Impressum</a></li>
                         </ul>
                         
-                        <!-- Sprachumschalter -->
+                        <!-- Sprachumschalter Buttons-->
                         <div class="d-flex gap-2 ms-3">
                             <button class="btn btn-outline-light btn-sm" onclick="setDirection('ltr')">DE</button>
                             <button class="btn btn-outline-light btn-sm" onclick="setDirection('rtl')">AR</button>
@@ -63,7 +64,7 @@
             <div class="row">
 
                 <!-- Lokales Menü für die Navigation innerhalb der Seite -->
-                <aside class="col-md-3 local-menu" dir="ltr">
+                <aside class="col-md-3 local-menu">
                     <div class="list-group">
                         <a href="#overview" class="list-group-item list-group-item-action">Übersicht</a>
                         <a href="#countries" class="list-group-item list-group-item-action">Länder</a>                        
@@ -73,9 +74,9 @@
                 </aside>
 
                 <!-- Hauptinhalt der Seite -->
-                <section class="col-md-9 content-area" dir="ltr">
+                <section class="col-md-9 content-area">
                     <section id="overview">
-                        <h2>Übersicht</h2>
+                        <h1>Übersicht</h1>
                         <p>
                             Diese Webseite stellt beispielhafte CO₂-Emissionsdaten
                             verschiedener Länder und Unternehmen dar.
@@ -86,7 +87,7 @@
 
                     <!-- Abschnitt über die Länder -->
                     <section id="countries">
-                        <h2>Länder</h2>
+                        <h1>Länder</h1>
                         <p>
                             Die Daten umfassen verschiedene Länder mit
                             fiktiven Emissionswerten.
@@ -98,7 +99,7 @@
 
                     <!-- Abschnitt über die Unternehmen -->
                     <section id="companies">
-                        <h2>Unternehmen</h2>
+                        <h1>Unternehmen</h1>
                         <p>
                             Zusätzlich werden Unternehmen mit ihren
                             Emissionswerten dargestellt.
@@ -111,17 +112,17 @@
 
                     <!-- Abschnitt über die CO₂-Emissionsdaten -->
                     <section id="emissions">
-                        <h2>CO₂-Emissionsdaten</h2>
+                        <h1>CO₂-Emissionsdaten</h1>
 
                     <!-- Filteroptionen für die Tabelle -->
                     <div class="row mb-3">
                         <div class="col-md-6">
                             <label for="countryFilter" class="form-label">Nach Land filtern</label>
-                            <input type="text" id="countryFilter" class="form-control" placeholder="z. B. Deutschland">
+                            <input type="text" id="countryFilter" class="form-control" placeholder="z. B. Deutschland" maxlength="50" autocomplete="off">
                         </div>
                         <div class="col-md-6">
                             <label for="companyFilter" class="form-label">Nach Unternehmen filtern</label>
-                            <input type="text" id="companyFilter" class="form-control" placeholder="z. B. EcoSteel">
+                            <input type="text" id="companyFilter" class="form-control" placeholder="z. B. EcoSteel" maxlength="50" autocomplete="off">
                         </div>
                     </div>
 
@@ -292,7 +293,25 @@
 
         <!-- Fußzeile der Webseite -->
         <footer class="bg-light p-3 text-center">
-            <a href="#">Impressum</a> | <a href="#">Datenschutz</a>
+            <section id="impressum">
+                <h1>Impressum</h1>
+                    <p>
+                        Angaben gemäß § 5 DDG:<br>
+                        Max Mustermann<br>
+                        Musterstraße 1<br>
+                        12345 Musterstadt<br>
+                        Deutschland<br>
+
+                        Kontakt:<br>
+                        E-Mail: <a href="mailto:"Max.Mustermann@mail.de>Max.Mustermann@mail.de</a><br>
+                        Telefon: +49 (0) 123 456789<br>
+
+                        Verantwortlich für den Inhalt gemäß § 18 Abs. 2 MStV:<br>
+                        Max Mustermann (Anschrift wie oben)<br>
+
+                        Hinweis: Diese Angaben sind fiktiv und dienen ausschließlich der Demonstration im Rahmen dieser Fallstudie.
+                    </p>
+            </section>
         </footer>
 
         <!-- Einbindung von Bootstrap und eigenem JavaScript -->
