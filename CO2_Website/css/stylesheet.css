@@ -135,6 +135,13 @@ h1 {
     color: black;
 }
 
+.navbar-brand h1 {
+    font-size: inherit;
+    color: inherit;
+    margin: 0;
+    font-weight: inherit;
+}
+
 h2 {
     font-size: 1.8rem;
     color: black;
