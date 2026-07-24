@@ -3,6 +3,7 @@ const companyFilter = document.getElementById("companyFilter");
 
 const DISALLOWED_CHARS = /[^\p{L}\p{N}\s\-]/gu;
 
+// Mapping der Textausrichtung auf die entsprechende Sprache
 const LANG_BY_DIRECTION = {
     ltr: "de",
     rtl: "ar"
@@ -18,6 +19,7 @@ function handleFilterInput(event) {
     const field = event.target;
     const cleanedValue = sanitizeInput(field.value);
 
+    // Aktualisieren des Feldwerts nur, wenn sich der bereinigte Wert vom aktuellen Wert unterscheidet
     if (cleanedValue !== field.value) {
         field.value = cleanedValue;
     }
@@ -51,13 +53,15 @@ function filterTable() {
         if (countryMatches && companyMatches) {
             row.style.display = "";
 
-        } else {
+        } 
+        else {
             row.style.display = "none";
         }
     });
 }
 
 // Funktion zum Sortieren der Tabelle basierend auf der Spaltenindex
+let sortColumn = -1;
 let sortAscending = true;
 
 // Sortierfunktion für die Tabelle
@@ -66,6 +70,15 @@ function sortTable(columnIndex) {
     const table = document.getElementById("emissionsTable");
     const tbody = table.querySelector("tbody");
     const rows = Array.from(tbody.querySelectorAll("tr"));
+
+    // Überprüfen, ob die gleiche Spalte erneut sortiert wird, um die Sortierreihenfolge umzukehren
+    if (columnIndex === sortColumn) {
+        sortAscending = !sortAscending;
+    } 
+    else {
+        sortColumn = columnIndex;
+        sortAscending = true;
+    }
 
     // Sortieren der Zeilen basierend auf dem Textinhalt der Zellen in der angegebenen Spalte
     rows.sort(function (a, b) {
@@ -83,8 +96,42 @@ function sortTable(columnIndex) {
         tbody.appendChild(row);
     });
 
-    sortAscending = !sortAscending;
+    updateSortIndicators(columnIndex);
 }
+
+// Funktion zum Aktualisieren der Sortiersymbole und aria-sort-Attribute in den Tabellenköpfen
+function updateSortIndicators(columnIndex) {
+    const headers = document.querySelectorAll("#emissionsTable thead th.sortable");
+
+    // Aktualisieren der Sortiersymbole und aria-sort-Attribute für die Tabellenköpfe
+    headers.forEach(function (header, index) {
+        const icon = header.querySelector(".sort-icon");
+
+        // Setzen der aria-sort-Attribute und Aktualisieren der Sortiersymbole basierend auf der aktuellen Sortierreihenfolge
+        if (index === columnIndex) {
+            header.setAttribute("aria-sort", sortAscending ? "ascending" : "descending");
+            if (icon) { icon.textContent = sortAscending ? "↑" : "↓"; }
+            } 
+            else {
+            header.setAttribute("aria-sort", "none");
+            if (icon) { icon.textContent = "↕"; }
+        }
+    });
+} 
+
+// Hinzufügen von Tastaturzugänglichkeit für die Sortierfunktion
+document.querySelectorAll("#emissionsTable thead th.sortable").forEach(function (header, index) {
+    header.setAttribute("tabindex", "0");
+    header.setAttribute("role", "button");
+
+    // Event-Listener für Tastaturereignisse, um die Sortierfunktion bei Enter oder Leertaste auszulösen
+    header.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            sortTable(index);
+        }
+    });
+});
 
 // Funktion zum Setzen der Textausrichtung (LTR oder RTL) und Speichern in localStorage
 window.setDirection = function (direction) {
