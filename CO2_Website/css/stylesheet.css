@@ -100,14 +100,9 @@ footer {
 }
 
 .local-menu {
-    order: 1;
     position: sticky;
     top: 90px;   /* statt 1rem – muss der Headerhöhe entsprechen */
     align-self: flex-start;
-}
-
-.content-area {
-    order: 2;
 }
 
 [dir="rtl"] {
