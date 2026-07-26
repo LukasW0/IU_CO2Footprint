@@ -3,11 +3,20 @@ const companyFilter = document.getElementById("companyFilter");
 
 const DISALLOWED_CHARS = /[^\p{L}\p{N}\s\-]/gu;
 
-// Mapping der Textausrichtung auf die entsprechende Sprache
-const LANG_BY_DIRECTION = {
-    ltr: "de",
-    rtl: "ar"
-};
+// Mapping von Textausrichtung zu Sprachcode
+const RTL_LANGUAGES = new Set([
+    "ar",  // Arabisch
+    "ckb", // Zentralkurdisch (Sorani)
+    "dv",  // Dhivehi
+    "fa",  // Persisch
+    "he",  // Hebräisch
+    "iw",  // Hebräisch (veralteter Sprachcode)
+    "ps",  // Paschtu
+    "sd",  // Sindhi
+    "ug",  // Uigurisch
+    "ur",  // Urdu
+    "yi"   // Jiddisch
+]);
 
 // Funktion zur Bereinigung der Eingabewerte, um unerwünschte Zeichen zu entfernen
 function sanitizeInput(rawValue) {
@@ -91,7 +100,7 @@ function sortTable(columnIndex) {
                 : valueB.localeCompare(valueA, "de");
     });
 
-    // Entfernen der vorhandenen Zeilen aus dem tbody
+    // Zeilen in der neuen Reihenfolge wieder in den tbody einhängen
     rows.forEach(function (row) {
         tbody.appendChild(row);
     });
@@ -133,21 +142,29 @@ document.querySelectorAll("#emissionsTable thead th.sortable").forEach(function 
     });
 });
 
-// Funktion zum Setzen der Textausrichtung (LTR oder RTL) und Speichern in localStorage
-window.setDirection = function (direction) {
+// Funktion zur Erkennung der Schreibrichtung basierend auf der bevorzugten Sprache des Browsers
+function detectDirection() {
 
+    // Ermitteln der bevorzugten Sprache des Browsers; Standard ist "de" (Deutsch)
+    const preferredLanguage = navigator.language || "de";
+
+    // Extrahieren des primären Subtags (z. B. "ar" aus "ar-SA")
+    const primarySubtag = preferredLanguage.toLowerCase().split("-")[0];
+
+    return RTL_LANGUAGES.has(primarySubtag) ? "rtl" : "ltr";
+}
+
+// Funktion zum Anwenden der Schreibrichtung auf das HTML-Dokument
+function applyDirection(direction) {
     document.documentElement.setAttribute("dir", direction);
-    document.documentElement.setAttribute("lang", LANG_BY_DIRECTION[direction] ?? "de");
+}
+
+// Funktion zum Setzen der Schreibrichtung und Speichern der Auswahl in localStorage
+window.setDirection = function (direction) {
+    applyDirection(direction);
     localStorage.setItem("direction", direction);
 };
 
-// Beim Laden der Seite die gespeicherte Textausrichtung aus localStorage abrufen und anwenden
-window.onload = function () {
-
-    const savedDirection = localStorage.getItem("direction");
-
-    // Wenn eine gespeicherte Richtung vorhanden ist, diese anwenden
-    if (savedDirection) {
-        setDirection(savedDirection);
-    }
-};
+// Beim Laden der Seite die gespeicherte Schreibrichtung abrufen und anwenden, oder die Richtung erkennen, wenn keine gespeichert ist
+const savedDirection = localStorage.getItem("direction");
+applyDirection(savedDirection ?? detectDirection());
