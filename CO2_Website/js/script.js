@@ -131,7 +131,6 @@ function updateSortIndicators(columnIndex) {
 // Hinzufügen von Tastaturzugänglichkeit für die Sortierfunktion
 document.querySelectorAll("#emissionsTable thead th.sortable").forEach(function (header, index) {
     header.setAttribute("tabindex", "0");
-    header.setAttribute("role", "button");
 
     // Event-Listener für Tastaturereignisse, um die Sortierfunktion bei Enter oder Leertaste auszulösen
     header.addEventListener("keydown", function (event) {
