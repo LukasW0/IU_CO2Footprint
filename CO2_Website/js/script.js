@@ -3,7 +3,7 @@ const companyFilter = document.getElementById("companyFilter");
 
 const DISALLOWED_CHARS = /[^\p{L}\p{N}\s\-]/gu;
 
-// Mapping von Textausrichtung zu Sprachcode
+// Liste an Sprachcodes
 const RTL_LANGUAGES = new Set([
     "ar",  // Arabisch
     "ckb", // Zentralkurdisch (Sorani)

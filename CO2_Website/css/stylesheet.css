@@ -1,60 +1,96 @@
-/* stylesheet.css Für die CO₂ Webseite */
-
+/* stylesheet.css für die CO₂-Webseite */
+ 
 html {
     scroll-behavior: smooth;
     background-color: white;
 }
-
+ 
 body {
     background-color: white;
 }
-
+ 
 header {
     background-color: #212529;
     padding-top: env(safe-area-inset-top);
 }
-
+ 
 footer {
     margin-top: 2rem;
 }
-
+ 
 #overview,
 #countries,
 #companies,
 #emissions {
     scroll-margin-top: 90px;
 }
-
+ 
 .navbar-brand img.logo {
     width: 60px;
     max-width: 60px;
     height: auto;
 }
-
+ 
+.navbar-brand h1 {
+    font-size: inherit;
+    color: inherit;
+    margin: 0;
+    font-weight: inherit;
+}
+ 
+h2 {
+    font-size: 1.8rem;
+    color: black;
+}
+ 
+/* Lokales Menü als Seitenleiste (Grundzustand ab dem md-Breakpoint) */
+.local-menu {
+    position: sticky;
+    top: 90px;   /* entspricht der Headerhöhe */
+    align-self: flex-start;
+}
+ 
+[dir="rtl"] {
+    text-align: right;
+}
+ 
+.sortable {
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+}
+ 
+.sortable:hover {
+    background-color: #e9ecef;
+    text-decoration: underline;
+}
+ 
+.sort-icon {
+    margin-left: 0.25rem;
+    font-size: 0.8rem;
+}
+ 
+/* Mobile Darstellung unterhalb des md-Breakpoints */
 @media (max-width: 767px) {
+ 
     #overview,
     #countries,
     #companies,
     #emissions {
         scroll-margin-top: 70px;
     }
-}
-
-@media (max-width: 767px) {
+ 
     .navbar-brand {
         font-size: 1rem;
     }
-
+ 
     .navbar-brand img.logo {
         width: 48px;
         max-width: 48px;
     }
-}
-
-@media (max-width: 767px) { 
+ 
     .local-menu {
-        position: sticky;
-        top: 70px;   /* statt 0 */
+        top: 70px;
         z-index: 1000;
         background-color: white;
         padding: 0.5rem 0.75rem;
@@ -62,11 +98,11 @@ footer {
         white-space: nowrap;
         scrollbar-width: none;
     }
-
+ 
     .local-menu::-webkit-scrollbar {
         display: none;
     }
-    
+ 
     .local-menu .list-group {
         display: flex;
         flex-direction: row;
@@ -75,7 +111,7 @@ footer {
         overflow-x: auto;
         border: none;
     }
-
+ 
     .local-menu .list-group-item {
         flex: 0 0 auto;
         width: auto;
@@ -84,60 +120,4 @@ footer {
         border-radius: 999px;
         border: 1px solid #dee2e6;
     }
-}
-
-@media (max-width: 991px) {
-    .language-switcher {
-        margin-right: 0;
-        margin-top: 1rem;
-    }
-}
-
-.language-switcher {
-    display: flex;
-    gap: 0.5rem;
-    margin-left: 1rem;
-}
-
-.local-menu {
-    position: sticky;
-    top: 90px;   /* statt 1rem – muss der Headerhöhe entsprechen */
-    align-self: flex-start;
-}
-
-[dir="rtl"] {
-    text-align: right;
-}
-
-.sortable {
-    cursor: pointer;
-    user-select: none;
-    white-space: nowrap;
-}
-
-.sortable:hover {
-    background-color: #e9ecef;
-    text-decoration: underline;
-}
-
-.sort-icon {
-    margin-left: 0.25rem;
-    font-size: 0.8rem;
-}
-
-h1 {
-    font-size: 2.5rem;
-    color: black;
-}
-
-.navbar-brand h1 {
-    font-size: inherit;
-    color: inherit;
-    margin: 0;
-    font-weight: inherit;
-}
-
-h2 {
-    font-size: 1.8rem;
-    color: black;
 }
